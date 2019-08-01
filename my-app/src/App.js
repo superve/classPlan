@@ -91,12 +91,23 @@ class Pannel extends React.Component {
 
 
 export default class Container extends React.Component {
-
+ handleSubmit = (e) => {
+   // 阻止表单的默认提交事件
+   e.preventDefault();
+   console.log( e );
+   console.log(e.target);
+   console.log( this.refs.username.value );
+   
+ }
   render() {
     return (
 
       <div className="container">
         <h1>React基础学习</h1>
+        <form  onSubmit={this.handleSubmit}>
+          <input ref='username' type="text" />
+          <input type="submit" value="提交"/>
+        </form>
         <hr />
         <Pannel name="panel" />
 
